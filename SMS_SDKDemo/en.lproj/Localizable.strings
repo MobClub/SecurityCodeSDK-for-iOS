@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  SMS_SDKDemo
+
+  Created by 掌淘科技 on 14-9-26.
+  Copyright (c) 2014年 掌淘科技. All rights reserved.
+*/
+"welcome"="Click on the screen to continue...";
+"registeruser"="Register or show the demo";
+"addressbookfriends"="AddressBook friends";
+"register"="Register";
+"back"="Back";
+"labelnotice"="Choose country and input number";
+"telfield"="Input the phone number";
+"nextbtn"="Next step";
+"countrylable"="Country";
+"countrychoose"="Choose the country";
+
+"notice"="Notice";
+"errorphonenumber"="Phone number is invalid";
+"sure"="Sure";
+
+"willsendthecodeto"="We will send the code to the phone";
+"surephonenumber"="Make sure the number";
+"cancel"="Cancel";
+
+"codesenderrormsg"="The code send fail try again later";
+"codesenderrtitle"="Send Fail";
+
+"maxcodemsg"="The code is up the max limit";
+"maxcode"="Up max limit";
+
+"codetoooftenmsg"="The request is too often";
+
+"verifycode"="Verify Code";
+"verifylabel"="We have send the code to the phone";
+"timelabel"="Takes about 60 seconds";
+"repeatsms"="Can't get code？";
+"submit"="Submit";
+"sendingin"="Sending in...";
+"timelablemsg"="SMS takes about ";
+"second"=" seconds";
+
+"verifycoderightmsg"="Code is right";
+"verifycoderighttitle"="Success";
+"verifycodeerrormsg"="Code is invalid try again later";
+"verifycodeerrortitle"="Verify failure";
+
+"cannotgetsmsmsg"="We will re send verification code SMS to it";
+
+"codedelaymsg"="Messages may slightly delay is determined to return and start again";
+"wait"="Wait";
+
+"verifycodeformaterror"="Code format error please re-enter";
+
+"doesnotsupportarea"="Temporarily does not support the area";
+
+"addfriends"="Add";
+"invitefriends"="Invite";
+"hasjoined"="Has joined users";
+"toinvitefriends"="To invite friends";
+"phonecontacts"="Phone contacts";
+
+"loading"="Loading...";
+"authorizedcontact"="You may not be authorized to access contacts in settings authorization, you can see the contacts of friends";
+
+"addfriendstitle"="Add friends";
+"addfriendsmsg"="Has been sent to add friends information, please be patient friend reply";
+
+"sendinvite"="Send invite";
+"notjoined"="not joined";
+"phonecode"="Phone";
+"smsmessage"="Join SMS_SDK, for http://mob.com web site";
+"choosephonenumber"="Choose to send invitation number";
+
