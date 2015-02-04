@@ -19,9 +19,9 @@
 @property (copy, nonatomic) UIImage *image;
 
 @property (copy, nonatomic) NSString *name;
-@property(copy,nonatomic) NSString* nameDesc;
+@property (copy,nonatomic) NSString* nameDesc;
 @property (nonatomic, assign) int index;
-@property(nonatomic,assign) int section;
+@property (nonatomic,assign) int section;
 @property (nonatomic, assign) id<CustomCellDelegate> delegate;
 
 - (void)btnClick;

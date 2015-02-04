@@ -2,13 +2,14 @@
 //  YJAppDelegate.m
 //  SMS_SDKDemo
 //
-//  Created by 刘靖煌 on 14-8-28.
+//  Created by 刘 靖煌 on 14-8-28.
 //  Copyright (c) 2014年 掌淘科技. All rights reserved.
 //
 
 #import "YJAppDelegate.h"
-#import "SMS_SDK/SMS_SDK.h"
 #import "YJViewController.h"
+
+#import <SMS_SDK/SMS_SDK.h>
 
 #define appKey @"25a64c839b5f"
 #define appSecret @"9a639150fcb464d9a1c1ab926648ca3f"

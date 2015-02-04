@@ -2,7 +2,8 @@
 
 #import "SectionsViewController.h"
 #import "NSDictionary-DeepMutableCopy.h"
-#import "SMS_SDK/SMS_SDK.h"
+
+#import <SMS_SDK/SMS_SDK.h>
 
 @interface SectionsViewController ()
 {
@@ -79,13 +80,10 @@
     {
         statusBarHeight=20;
     }
+    
     //创建一个导航栏
     UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
-    
-    //创建一个导航栏集合
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
-    
-    //创建一个左边按钮
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
@@ -93,11 +91,7 @@
     
     //设置导航栏内容
     [navigationItem setTitle:NSLocalizedString(@"countrychoose", nil)];
-    
-    //把导航栏集合添加入导航栏中，设置动画关闭
     [navigationBar pushNavigationItem:navigationItem animated:NO];
-    
-    //把左右两个按钮添加入导航栏集合中
     [navigationItem setLeftBarButtonItem:leftButton];
     
     //把导航栏添加到视图中
@@ -105,9 +99,7 @@
     
     //添加搜索框
     search=[[UISearchBar alloc] init];
-    
     search.frame=CGRectMake(0, 44+statusBarHeight, 320, 44);
-    
     [self.view addSubview:search];
     
     //添加table
@@ -115,22 +107,17 @@
     [self.view addSubview:table];
 
     table.dataSource=self;
-    
     table.delegate=self;
     search.delegate=self;
-
-    
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"country"
                                                      ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] 
                           initWithContentsOfFile:path];
     self.allNames = dict;
-    //[dict release];
-    
+
     [self resetSearch];
     [table reloadData];
-    //set offset to cover the search bar(which height is 44.0),no animation
     [table setContentOffset:CGPointMake(0.0, 44.0) animated:NO];
 }
 
@@ -248,13 +235,9 @@ sectionForSectionIndexTitle:(NSString *)title
     NSArray *nameSection = [names objectForKey:key];
     
     NSString* str1 = [nameSection objectAtIndex:indexPath.row];
-    
     NSRange range=[str1 rangeOfString:@"+"];
-    
     NSString* str2=[str1 substringFromIndex:range.location];
-    
     NSString* areaCode=[str2 stringByReplacingOccurrencesOfString:@"+" withString:@""];
-    
     NSString* countryName=[str1 substringToIndex:range.location];
 
     CountryAndAreaCode* country=[[CountryAndAreaCode alloc] init];
@@ -263,22 +246,30 @@ sectionForSectionIndexTitle:(NSString *)title
     
     NSLog(@"%@ %@",countryName,areaCode);
     
-    
     [self.view endEditing:YES];
     
     int compareResult = 0;
-    for (int i=0; i<_areaArray.count; i++) {
+    
+    for (int i=0; i<_areaArray.count; i++)
+    {
         NSDictionary* dict1=[_areaArray objectAtIndex:i];
-        NSString* code1=[dict1 valueForKey:@"zone"];
-        NSLog(@"%@",code1);
-        if ([code1 isEqualToString:areaCode]) {
+        
+        [dict1 objectForKey:areaCode];
+        NSString* code1 = [dict1 valueForKey:@"zone"];
+        if ([code1 isEqualToString:areaCode])
+        {
             compareResult=1;
             break;
         }
     }
     
-    if (!compareResult) {
-        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice", nil) message:NSLocalizedString(@"doesnotsupportarea", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
+    if (!compareResult)
+    {
+        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice", nil)
+                                                      message:NSLocalizedString(@"doesnotsupportarea", nil)
+                                                     delegate:self
+                                            cancelButtonTitle:NSLocalizedString(@"sure", nil)
+                                            otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -287,13 +278,15 @@ sectionForSectionIndexTitle:(NSString *)title
     if ([self.delegate respondsToSelector:@selector(setSecondData:)]) {
         [self.delegate setSecondData:country];
     }
+    
+    //关闭当前
+    [self clickLeftButton];
 }
 
 #pragma mark -
 #pragma mark Search Bar Delegate Methods
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    //click search button at keyboard,will do something
     NSString *searchTerm = [searchBar text];
     [self handleSearchForTerm:searchTerm];
 }
@@ -312,20 +305,17 @@ sectionForSectionIndexTitle:(NSString *)title
         return;
     }
     
-    //when you type something in text field,the search is beginning(synchronization)
     [self handleSearchForTerm:searchTerm];
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    //reset Search bar
     isSearching = NO;
     search.text = @"";
 
     [self resetSearch];
     [table reloadData];
     
-    //dismiss the keyboard
     [searchBar resignFirstResponder];
 }
 

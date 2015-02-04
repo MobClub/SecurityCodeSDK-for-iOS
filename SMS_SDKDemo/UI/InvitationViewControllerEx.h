@@ -11,9 +11,6 @@
 @interface InvitationViewControllerEx : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 -(void)setData:(NSString*)name;
-
-
 -(void)setPhone:(NSString *)phone AndPhone2:(NSString*)phone2;
-
 
 @end

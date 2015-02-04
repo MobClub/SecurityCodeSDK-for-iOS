@@ -1,12 +1,13 @@
+
 //
-//  VerifyViewController.m
+//  SubmitViewController.m
 //  SMS_SDKDemo
 //
-//  Created by admin on 14-6-4.
-//  Copyright (c) 2014年 admin. All rights reserved.
+//  Created by ljh on 2/4/15.
+//  Copyright (c) 2015 严军. All rights reserved.
 //
 
-#import "VerifyViewController.h"
+#import "SubmitViewController.h"
 
 #import "SMS_MBProgressHUD+Add.h"
 #import <AddressBook/AddressBook.h>
@@ -17,7 +18,7 @@
 #import <SMS_SDK/SMS_UserInfo.h>
 #import <SMS_SDK/SMS_AddressBook.h>
 
-@interface VerifyViewController ()
+@interface SubmitViewController ()
 {
     NSString* _phone;
     NSString* _areaCode;
@@ -43,9 +44,6 @@
     UIAlertView* _alert1;
     UIAlertView* _alert2;
     UIAlertView* _alert3;
-    
-    UIAlertView *_tryVoiceCallAlertView;
-
 }
 
 @end
@@ -55,7 +53,7 @@ static int count = 0;
 //最近新好友信息
 static NSMutableArray* _userData2;
 
-@implementation VerifyViewController
+@implementation SubmitViewController
 
 -(void)clickLeftButton
 {
@@ -65,7 +63,7 @@ static NSMutableArray* _userData2;
                                         cancelButtonTitle:NSLocalizedString(@"back", nil)
                                         otherButtonTitles:NSLocalizedString(@"wait", nil), nil];
     _alert2=alert;
-    [alert show];    
+    [alert show];
 }
 
 -(void)setPhone:(NSString*)phone AndAreaCode:(NSString*)areaCode
@@ -136,8 +134,7 @@ static NSMutableArray* _userData2;
         if (1==buttonIndex)
         {
             NSLog(@"重发验证码");
-            [SMS_SDK getVerifyCodeByPhoneNumber:_phone AndZone:_areaCode result:^(enum SMS_GetVerifyCodeResponseState state)
-            {
+            [SMS_SDK getVerifyCodeByPhoneNumber:_phone AndZone:_areaCode result:^(enum SMS_GetVerifyCodeResponseState state) {
                 if (1==state)
                 {
                     NSLog(@"block 获取验证码成功");
@@ -146,24 +143,34 @@ static NSMutableArray* _userData2;
                 {
                     NSLog(@"block 获取验证码失败");
                     NSString* str=[NSString stringWithFormat:NSLocalizedString(@"codesenderrormsg", nil)];
-                    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"codesenderrtitle", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
+                    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"codesenderrtitle", nil)
+                                                                  message:str
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"sure", nil)
+                                                        otherButtonTitles:nil, nil];
                     [alert show];
                 }
                 else if (SMS_ResponseStateMaxVerifyCode==state)
                 {
                     NSString* str=[NSString stringWithFormat:NSLocalizedString(@"maxcodemsg", nil)];
-                    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"maxcode", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
+                    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"maxcode", nil)
+                                                                  message:str delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"sure", nil)
+                                                        otherButtonTitles:nil, nil];
                     [alert show];
                 }
                 else if(SMS_ResponseStateGetVerifyCodeTooOften==state)
                 {
                     NSString* str=[NSString stringWithFormat:NSLocalizedString(@"codetoooftenmsg", nil)];
-                    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice", nil) message:str delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
+                    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice", nil)
+                                                                  message:str delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"sure", nil)
+                                                        otherButtonTitles:nil, nil];
                     [alert show];
                 }
-
+                
             }];
-
+            
         }
         
     }
@@ -187,29 +194,6 @@ static NSMutableArray* _userData2;
             [_timer1 invalidate];
         }];
     }
-    
-    if (alertView == _tryVoiceCallAlertView)
-    {
-        if (0 ==buttonIndex)
-        {
-            [SMS_SDK getVerificationCodeByVoiceCallWithPhone:_phone
-                                                        zone:_areaCode
-                                                      result:^(SMS_SDKError *error)
-             {
-                 
-                 if (error)
-                 {
-                     UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"codesenderrtitle", nil)
-                                                                   message:[NSString stringWithFormat:@"状态码：%zi",error.errorCode]
-                                                                  delegate:self
-                                                         cancelButtonTitle:NSLocalizedString(@"sure", nil)
-                                                         otherButtonTitles:nil, nil];
-                     [alert show];
-                 }
-             }];
-        }
-    }
-
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -235,7 +219,6 @@ static NSMutableArray* _userData2;
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(clickLeftButton)];
-    
     //设置导航栏内容
     [navigationItem setTitle:NSLocalizedString(@"verifycode", nil)];
     [navigationBar pushNavigationItem:navigationItem animated:NO];
@@ -289,25 +272,6 @@ static NSMutableArray* _userData2;
     [_submitBtn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_submitBtn];
     
-    _voiceCallMsgLabel=[[UILabel alloc] init];
-    _voiceCallMsgLabel.frame=CGRectMake((self.view.bounds.size.width -300)/2 , 268+statusBarHeight, 300, 25);
-    _voiceCallMsgLabel.textAlignment = UITextAlignmentCenter;
-    _voiceCallMsgLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
-    [_voiceCallMsgLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
-    _voiceCallMsgLabel.text=NSLocalizedString(@"voiceCallMsgLabel", nil);
-    [self.view addSubview:_voiceCallMsgLabel];
-    _voiceCallMsgLabel.hidden = YES;
-    
-    _voiceCallButton=[UIButton buttonWithType:UIButtonTypeSystem];
-    [_voiceCallButton setTitle:NSLocalizedString(@"try voice call", nil) forState:UIControlStateNormal];
-    [_voiceCallButton setBackgroundImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
-    _voiceCallButton.frame=CGRectMake(9, 300+statusBarHeight, 303, 42);
-    [_voiceCallButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_voiceCallButton addTarget:self action:@selector(tryVoiceCall) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_voiceCallButton];
-    _voiceCallButton.hidden = YES;
-
-    
     self.repeatSMSBtn.hidden=YES;
     
     [_timer2 invalidate];
@@ -316,34 +280,22 @@ static NSMutableArray* _userData2;
     count = 0;
     
     NSTimer* timer=[NSTimer scheduledTimerWithTimeInterval:60
-                                           target:self
-                                         selector:@selector(showRepeatButton)
-                                         userInfo:nil
-                                          repeats:YES];
-    
-    NSTimer* timer2=[NSTimer scheduledTimerWithTimeInterval:1
                                                     target:self
-                                                  selector:@selector(updateTime)
+                                                  selector:@selector(showRepeatButton)
                                                   userInfo:nil
                                                    repeats:YES];
+    
+    NSTimer* timer2=[NSTimer scheduledTimerWithTimeInterval:1
+                                                     target:self
+                                                   selector:@selector(updateTime)
+                                                   userInfo:nil
+                                                    repeats:YES];
     _timer1=timer;
     _timer2=timer2;
     
     [SMS_MBProgressHUD showMessag:NSLocalizedString(@"sendingin", nil) toView:self.view];
     
 }
-
--(void)tryVoiceCall
-{
-    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"verificationByVoiceCallConfirm", nil)
-                                                  message:[NSString stringWithFormat:@"%@: +%@ %@",NSLocalizedString(@"willsendthecodeto", nil),_areaCode, _phone]
-                                                 delegate:self
-                                        cancelButtonTitle:NSLocalizedString(@"sure", nil)
-                                        otherButtonTitles:NSLocalizedString(@"cancel", nil), nil];
-    _tryVoiceCallAlertView = alert;
-    [alert show];
-}
-
 
 -(void)updateTime
 {
@@ -353,21 +305,7 @@ static NSMutableArray* _userData2;
         [_timer2 invalidate];
         return;
     }
-    //NSLog(@"更新时间");
     self.timeLabel.text=[NSString stringWithFormat:@"%@%i%@",NSLocalizedString(@"timelablemsg", nil),60-count,NSLocalizedString(@"second", nil)];
-    
-    if (count == 30)
-    {
-        if (_voiceCallMsgLabel.hidden)
-        {
-            _voiceCallMsgLabel.hidden = NO;
-        }
-        
-        if (_voiceCallButton.hidden)
-        {
-            _voiceCallButton.hidden = NO;
-        }
-    }
 }
 
 -(void)showRepeatButton{

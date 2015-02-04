@@ -16,18 +16,19 @@
 @synthesize name;
 @synthesize nameDesc;
 
-- (void)btnClick {
-    if ([self.delegate respondsToSelector:@selector(CustomCellBtnClick:)]) {
+- (void)btnClick
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(CustomCellBtnClick:)])
+    {
         [self.delegate CustomCellBtnClick:self];
     }
 }
 
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+    if (self)
+    {
         imageView=[[UIImageView alloc] init];
         imageView.frame=CGRectMake(15, 5, 50, 50);
         [self.contentView addSubview:imageView];
@@ -44,7 +45,6 @@
         
         _btn=[UIButton buttonWithType:UIButtonTypeSystem];
         _btn.frame=CGRectMake(254, 15, 46, 30);
-        
         [_btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
         [_btn setTitle:@"邀请" forState:UIControlStateNormal];
         NSString *icon = [NSString stringWithFormat:@"smssdk.bundle/button2.png"];
@@ -60,15 +60,19 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)setImage:(UIImage *)img {
-    if (![img isEqual:image]) {
+- (void)setImage:(UIImage *)img
+{
+    if (![img isEqual:image])
+    {
         image = [img copy];
         self.imageView.image = image;
     }
 }
 
--(void)setName:(NSString *)n {
-    if (![n isEqualToString:name]) {
+-(void)setName:(NSString *)n
+{
+    if (![n isEqualToString:name])
+    {
         name = [n copy];
         self.nameLabel.text = name;
     }
@@ -76,7 +80,8 @@
 
 -(void)setNameDesc:(NSString *)nDesc
 {
-    if (![nDesc isEqualToString:nameDesc]) {
+    if (![nDesc isEqualToString:nameDesc])
+    {
         nameDesc=[nDesc copy];
         self.nameDescLabel.text=nameDesc;
     }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3637128A1A81AE7600271164 /* SubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363712891A81AE7600271164 /* SubmitViewController.m */; };
+		36A68A8F1A7A39850003417E /* RegisterByVoiceCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A68A8B1A7A39850003417E /* RegisterByVoiceCallViewController.m */; };
+		36A68A901A7A39850003417E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A68A8E1A7A39850003417E /* RegViewController.m */; };
+		36C07FDC1A7F453800C1642D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C07FDB1A7F453800C1642D /* LaunchScreen.xib */; };
+		36E671AF1A80B6CD00CAA2F0 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36E671AB1A80B6CD00CAA2F0 /* SMS_SDKLocalizable.strings */; };
+		36E671B01A80B6CD00CAA2F0 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E671AD1A80B6CD00CAA2F0 /* SMS_SDK.framework */; };
 		F318BF0D19B04E23008E03EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F318BF0C19B04E23008E03EB /* MessageUI.framework */; };
 		F318BF1719B05208008E03EB /* NSDictionary-DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF1019B05208008E03EB /* NSDictionary-DeepMutableCopy.m */; };
 		F318BF1819B05208008E03EB /* SMS_HYZBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF1219B05208008E03EB /* SMS_HYZBadgeView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -14,17 +20,14 @@
 		F318BF1A19B05208008E03EB /* SMS_MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF1619B05208008E03EB /* SMS_MBProgressHUD.m */; };
 		F318BF2919B0520F008E03EB /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF1D19B0520F008E03EB /* CustomCell.m */; };
 		F318BF2A19B0520F008E03EB /* InvitationViewControllerEx.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF1F19B0520F008E03EB /* InvitationViewControllerEx.m */; };
-		F318BF2B19B0520F008E03EB /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF2119B0520F008E03EB /* RegViewController.m */; };
 		F318BF2C19B0520F008E03EB /* SectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF2319B0520F008E03EB /* SectionsViewController.m */; };
 		F318BF2D19B0520F008E03EB /* SectionsViewControllerFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF2519B0520F008E03EB /* SectionsViewControllerFriends.m */; };
 		F318BF2E19B0520F008E03EB /* smssdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F318BF2619B0520F008E03EB /* smssdk.bundle */; };
 		F318BF2F19B0520F008E03EB /* VerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF2819B0520F008E03EB /* VerifyViewController.m */; };
 		F318BF3219B05231008E03EB /* YJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F318BF3119B05231008E03EB /* YJViewController.m */; };
-		F318BF3419B052E0008E03EB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F318BF3319B052E0008E03EB /* icon.png */; };
 		F318BF8719B07914008E03EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F318BF8619B07914008E03EB /* Security.framework */; };
 		F35B886F19B018D800C67215 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35B886D19B018D800C67215 /* AddressBook.framework */; };
 		F35B887019B018D800C67215 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35B886E19B018D800C67215 /* AddressBookUI.framework */; };
-		F39E9BC019F89FD000407AE0 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39E9BBF19F89FD000407AE0 /* SMS_SDK.framework */; };
 		F3F34AC419AED773004CA430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F34AC319AED773004CA430 /* Foundation.framework */; };
 		F3F34AC619AED773004CA430 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F34AC519AED773004CA430 /* CoreGraphics.framework */; };
 		F3F34AC819AED773004CA430 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F34AC719AED773004CA430 /* UIKit.framework */; };
@@ -39,6 +42,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363712881A81AE7600271164 /* SubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitViewController.h; sourceTree = "<group>"; };
+		363712891A81AE7600271164 /* SubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitViewController.m; sourceTree = "<group>"; };
+		36A68A8A1A7A39850003417E /* RegisterByVoiceCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterByVoiceCallViewController.h; sourceTree = "<group>"; };
+		36A68A8B1A7A39850003417E /* RegisterByVoiceCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterByVoiceCallViewController.m; sourceTree = "<group>"; };
+		36A68A8D1A7A39850003417E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
+		36A68A8E1A7A39850003417E /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
+		36C07FDB1A7F453800C1642D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		36E671AC1A80B6CD00CAA2F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		36E671AD1A80B6CD00CAA2F0 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		36E671AE1A80B6CD00CAA2F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
 		F318BF0C19B04E23008E03EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F318BF0F19B05208008E03EB /* NSDictionary-DeepMutableCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-DeepMutableCopy.h"; sourceTree = "<group>"; };
 		F318BF1019B05208008E03EB /* NSDictionary-DeepMutableCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-DeepMutableCopy.m"; sourceTree = "<group>"; };
@@ -52,22 +65,18 @@
 		F318BF1D19B0520F008E03EB /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		F318BF1E19B0520F008E03EB /* InvitationViewControllerEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewControllerEx.h; sourceTree = "<group>"; };
 		F318BF1F19B0520F008E03EB /* InvitationViewControllerEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewControllerEx.m; sourceTree = "<group>"; };
-		F318BF2019B0520F008E03EB /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
-		F318BF2119B0520F008E03EB /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 		F318BF2219B0520F008E03EB /* SectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsViewController.h; sourceTree = "<group>"; };
 		F318BF2319B0520F008E03EB /* SectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsViewController.m; sourceTree = "<group>"; };
 		F318BF2419B0520F008E03EB /* SectionsViewControllerFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsViewControllerFriends.h; sourceTree = "<group>"; };
 		F318BF2519B0520F008E03EB /* SectionsViewControllerFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsViewControllerFriends.m; sourceTree = "<group>"; };
 		F318BF2619B0520F008E03EB /* smssdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = smssdk.bundle; sourceTree = "<group>"; };
-		F318BF2719B0520F008E03EB /* VerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyViewController.h; sourceTree = "<group>"; };
-		F318BF2819B0520F008E03EB /* VerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyViewController.m; sourceTree = "<group>"; };
+		F318BF2719B0520F008E03EB /* VerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerifyViewController.h; path = ../VerifyViewController.h; sourceTree = "<group>"; };
+		F318BF2819B0520F008E03EB /* VerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerifyViewController.m; path = ../VerifyViewController.m; sourceTree = "<group>"; };
 		F318BF3019B05229008E03EB /* YJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJViewController.h; sourceTree = "<group>"; };
 		F318BF3119B05231008E03EB /* YJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJViewController.m; sourceTree = "<group>"; };
-		F318BF3319B052E0008E03EB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		F318BF8619B07914008E03EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F35B886D19B018D800C67215 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		F35B886E19B018D800C67215 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
-		F39E9BBF19F89FD000407AE0 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		F3F34AC019AED773004CA430 /* SMS_SDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMS_SDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F34AC319AED773004CA430 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F3F34AC519AED773004CA430 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,7 +110,7 @@
 				F3F34B1E19AEDD1D004CA430 /* libicucore.dylib in Frameworks */,
 				F3F34B1C19AEDD10004CA430 /* libz.dylib in Frameworks */,
 				F3F34AC619AED773004CA430 /* CoreGraphics.framework in Frameworks */,
-				F39E9BC019F89FD000407AE0 /* SMS_SDK.framework in Frameworks */,
+				36E671B01A80B6CD00CAA2F0 /* SMS_SDK.framework in Frameworks */,
 				F3F34AC819AED773004CA430 /* UIKit.framework in Frameworks */,
 				F3F34AC419AED773004CA430 /* Foundation.framework in Frameworks */,
 			);
@@ -110,6 +119,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36A68A891A7A39850003417E /* Register By Voice Call */ = {
+			isa = PBXGroup;
+			children = (
+				36A68A8A1A7A39850003417E /* RegisterByVoiceCallViewController.h */,
+				36A68A8B1A7A39850003417E /* RegisterByVoiceCallViewController.m */,
+				363712881A81AE7600271164 /* SubmitViewController.h */,
+				363712891A81AE7600271164 /* SubmitViewController.m */,
+			);
+			path = "Register By Voice Call";
+			sourceTree = "<group>";
+		};
+		36A68A8C1A7A39850003417E /* Rigister By SMS */ = {
+			isa = PBXGroup;
+			children = (
+				36A68A8D1A7A39850003417E /* RegViewController.h */,
+				36A68A8E1A7A39850003417E /* RegViewController.m */,
+				F318BF2719B0520F008E03EB /* VerifyViewController.h */,
+				F318BF2819B0520F008E03EB /* VerifyViewController.m */,
+			);
+			path = "Rigister By SMS";
+			sourceTree = "<group>";
+		};
+		36E671AA1A80B6CD00CAA2F0 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				36E671AB1A80B6CD00CAA2F0 /* SMS_SDKLocalizable.strings */,
+				36E671AD1A80B6CD00CAA2F0 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
 		F318BF0E19B05208008E03EB /* SMS_UILib */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,19 +168,17 @@
 		F318BF1B19B0520F008E03EB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				36A68A891A7A39850003417E /* Register By Voice Call */,
+				36A68A8C1A7A39850003417E /* Rigister By SMS */,
 				F318BF1C19B0520F008E03EB /* CustomCell.h */,
 				F318BF1D19B0520F008E03EB /* CustomCell.m */,
 				F318BF1E19B0520F008E03EB /* InvitationViewControllerEx.h */,
 				F318BF1F19B0520F008E03EB /* InvitationViewControllerEx.m */,
-				F318BF2019B0520F008E03EB /* RegViewController.h */,
-				F318BF2119B0520F008E03EB /* RegViewController.m */,
 				F318BF2219B0520F008E03EB /* SectionsViewController.h */,
 				F318BF2319B0520F008E03EB /* SectionsViewController.m */,
 				F318BF2419B0520F008E03EB /* SectionsViewControllerFriends.h */,
 				F318BF2519B0520F008E03EB /* SectionsViewControllerFriends.m */,
 				F318BF2619B0520F008E03EB /* smssdk.bundle */,
-				F318BF2719B0520F008E03EB /* VerifyViewController.h */,
-				F318BF2819B0520F008E03EB /* VerifyViewController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -148,7 +186,7 @@
 		F3F34AB719AED773004CA430 = {
 			isa = PBXGroup;
 			children = (
-				F39E9BBF19F89FD000407AE0 /* SMS_SDK.framework */,
+				36E671AA1A80B6CD00CAA2F0 /* SMS_SDK */,
 				F3F34AC919AED773004CA430 /* SMS_SDKDemo */,
 				F3F34AC219AED773004CA430 /* Frameworks */,
 				F3F34AC119AED773004CA430 /* Products */,
@@ -197,10 +235,10 @@
 		F3F34ACA19AED773004CA430 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				36C07FDB1A7F453800C1642D /* LaunchScreen.xib */,
 				F3F51D1019D5001700FC5A04 /* Localizable.strings */,
 				F3F34AD519AED773004CA430 /* Images.xcassets */,
 				F3F51D1419D51B4200FC5A04 /* country.plist */,
-				F318BF3319B052E0008E03EB /* icon.png */,
 				F3F34ACB19AED773004CA430 /* SMS_SDKDemo-Info.plist */,
 				F3F34ACC19AED773004CA430 /* InfoPlist.strings */,
 				F3F34ACF19AED773004CA430 /* main.m */,
@@ -263,10 +301,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3F51D1219D51B4200FC5A04 /* country.plist in Resources */,
+				36E671AF1A80B6CD00CAA2F0 /* SMS_SDKLocalizable.strings in Resources */,
 				F3F51D0E19D5001700FC5A04 /* Localizable.strings in Resources */,
-				F318BF3419B052E0008E03EB /* icon.png in Resources */,
 				F318BF2E19B0520F008E03EB /* smssdk.bundle in Resources */,
 				F3F34ACE19AED773004CA430 /* InfoPlist.strings in Resources */,
+				36C07FDC1A7F453800C1642D /* LaunchScreen.xib in Resources */,
 				F3F34AD619AED773004CA430 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,12 +322,14 @@
 				F318BF1819B05208008E03EB /* SMS_HYZBadgeView.m in Sources */,
 				F318BF2D19B0520F008E03EB /* SectionsViewControllerFriends.m in Sources */,
 				F318BF2F19B0520F008E03EB /* VerifyViewController.m in Sources */,
-				F318BF2B19B0520F008E03EB /* RegViewController.m in Sources */,
 				F318BF1919B05208008E03EB /* SMS_MBProgressHUD+Add.m in Sources */,
 				F318BF3219B05231008E03EB /* YJViewController.m in Sources */,
+				36A68A901A7A39850003417E /* RegViewController.m in Sources */,
 				F318BF2A19B0520F008E03EB /* InvitationViewControllerEx.m in Sources */,
 				F3F34AD019AED773004CA430 /* main.m in Sources */,
+				3637128A1A81AE7600271164 /* SubmitViewController.m in Sources */,
 				F318BF1A19B05208008E03EB /* SMS_MBProgressHUD.m in Sources */,
+				36A68A8F1A7A39850003417E /* RegisterByVoiceCallViewController.m in Sources */,
 				F3F34AD419AED773004CA430 /* YJAppDelegate.m in Sources */,
 				F318BF2C19B0520F008E03EB /* SectionsViewController.m in Sources */,
 			);
@@ -297,6 +338,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		36E671AB1A80B6CD00CAA2F0 /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36E671AC1A80B6CD00CAA2F0 /* en */,
+				36E671AE1A80B6CD00CAA2F0 /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		F3F34ACC19AED773004CA430 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -410,6 +460,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SMS_SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMS_SDKDemo/SMS_SDKDemo-Prefix.pch";
@@ -429,6 +480,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SMS_SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMS_SDKDemo/SMS_SDKDemo-Prefix.pch";

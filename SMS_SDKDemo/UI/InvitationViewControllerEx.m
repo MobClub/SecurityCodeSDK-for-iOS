@@ -7,7 +7,8 @@
 //
 
 #import "InvitationViewControllerEx.h"
-#import "SMS_SDK/SMS_SDK.h"
+
+#import <SMS_SDK/SMS_SDK.h>
 
 @interface InvitationViewControllerEx ()
 {
@@ -42,14 +43,18 @@
 -(void)sendInvite
 {
     //发送短信
-    NSLog(@"发送短信");
-    if ([_phone2 length]>0) {
-        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice", nil) message:NSLocalizedString(@"choosephonenumber", nil) delegate:self cancelButtonTitle:_phone otherButtonTitles:_phone2, nil];
+    NSLog(@"send invitational message");
+    if ([_phone2 length]>0)
+    {
+        UIAlertView* alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"notice", nil)
+                                                      message:NSLocalizedString(@"choosephonenumber", nil)
+                                                     delegate:self
+                                            cancelButtonTitle:_phone
+                                            otherButtonTitles:_phone2, nil];
         [alert show];
     }
     else
     {
-        //[_sdk sendSMS:_phone?_phone:@"18927512076"];
         [SMS_SDK sendSMS:_phone?_phone:@"18927512076" AndMessage:NSLocalizedString(@"smsmessage", nil)];
     }
 }
@@ -58,12 +63,10 @@
 {
     if (1==buttonIndex)
     {
-        //[_sdk sendSMS:_phone2?_phone2:@"18927512076"];
         [SMS_SDK sendSMS:_phone?_phone:@"18927512076" AndMessage:NSLocalizedString(@"smsmessage", nil)];
     }
     if (0==buttonIndex)
     {
-        //[_sdk sendSMS:_phone?_phone:@"18927512076"];
         [SMS_SDK sendSMS:_phone?_phone:@"18927512076" AndMessage:NSLocalizedString(@"smsmessage", nil)];
     }
 }
@@ -79,9 +82,9 @@
 {
     static NSString *identifier = @"UITableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] ;
-        
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     cell.textLabel.text=_name;
@@ -110,24 +113,14 @@
     }
     //创建一个导航栏
     UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
-    
-    //创建一个导航栏集合
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
-    
-    //创建一个左边按钮
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(clickLeftButton)];
-    
-    
     //把导航栏集合添加入导航栏中，设置动画关闭
     [navigationBar pushNavigationItem:navigationItem animated:NO];
-    
-    //把左右两个按钮添加入导航栏集合中
     [navigationItem setLeftBarButtonItem:leftButton];
-    
-    //把导航栏添加到视图中
     [self.view addSubview:navigationBar];
     
     UITableView* tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 44+statusBarHeight, 320, 80) style:UITableViewStylePlain];
@@ -141,9 +134,7 @@
     [btn setBackgroundImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     btn.frame=CGRectMake(11, 198+statusBarHeight, 299, 42);
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
     [btn addTarget:self action:@selector(sendInvite) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.view addSubview:btn];
     
     UILabel* label=[[UILabel alloc] init];

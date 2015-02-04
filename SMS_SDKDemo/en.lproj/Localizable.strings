@@ -6,22 +6,25 @@
   Copyright (c) 2014年 掌淘科技. All rights reserved.
 */
 "welcome"="Click on the screen to continue...";
-"registeruser"="Register or show the demo";
+"RegisterBySMS"="Register By SMS";
 "addressbookfriends"="AddressBook friends";
+"getUserinfo" = "Get User Info";
+"submitUserInfo" = "Submit User Info";
 "register"="Register";
+"RegisterByVoiceCall" = "Register By Voice Call";
 "back"="Back";
-"labelnotice"="Choose country and input number";
-"telfield"="Input the phone number";
-"nextbtn"="Next step";
-"countrylable"="Country";
+"labelnotice"="Confirm your country code and enter your mobile number";
+"telfield"="Mobile number";
+"nextbtn"="Next";
+"countrylable"="Region";
 "countrychoose"="Choose the country";
 
 "notice"="Notice";
 "errorphonenumber"="Phone number is invalid";
-"sure"="Sure";
+"sure"="OK";
 
-"willsendthecodeto"="We will send the code to the phone";
-"surephonenumber"="Make sure the number";
+"willsendthecodeto"="We will send a verification code to the following number";
+"surephonenumber"="Phone Number Confirmation";
 "cancel"="Cancel";
 
 "codesenderrormsg"="The code send fail try again later";
@@ -32,13 +35,14 @@
 
 "codetoooftenmsg"="The request is too often";
 
-"verifycode"="Verify Code";
-"verifylabel"="We have send the code to the phone";
+"verifycode"="Enter Code";
+"verifylabel"="Verification code has been sent to:";
+"verifylabel"="Verification code has been sent to:";
 "timelabel"="Takes about 60 seconds";
 "repeatsms"="Can't get code？";
 "submit"="Submit";
 "sendingin"="Sending in...";
-"timelablemsg"="SMS takes about ";
+"timelablemsg"="Getting the verification code...";
 "second"=" seconds";
 
 "verifycoderightmsg"="Code is right";
@@ -73,3 +77,7 @@
 "smsmessage"="Join SMS_SDK, for http://mob.com web site";
 "choosephonenumber"="Choose to send invitation number";
 
+"voiceCallMsgLabel" = "You can also try this:";
+"try voice call" = "Get verification code by voice call";
+
+"verificationByVoiceCallConfirm" = "We will call you after your comfirmation. Vocie verification code. Please use message verification code service if you don't want to be called.";

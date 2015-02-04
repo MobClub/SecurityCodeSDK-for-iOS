@@ -6,9 +6,12 @@
   Copyright (c) 2014年 掌淘科技. All rights reserved.
 */
 "welcome"="点击屏幕继续...";
-"registeruser"="注册或绑定手机演示";
+"RegisterBySMS"="短信验证码注册";
 "addressbookfriends"="通讯录好友";
+"getUserinfo" = "获取用户数据";
+"submitUserInfo" = "提交用户资料";
 "register"="注册";
+"RegisterByVoiceCall" = "语音验证码注册";
 "back"="返回";
 "labelnotice"="请确认你的国家或地区并输入手机号";
 "telfield"="请填写手机号码";
@@ -18,7 +21,7 @@
 
 "notice"="提示";
 "errorphonenumber"="手机号码非法，请重新填写";
-"sure"="确定";
+"sure"="好";
 
 "willsendthecodeto"="我们将发送验证码短信到这个号码";
 "surephonenumber"="确认手机号码";
@@ -32,13 +35,13 @@
 
 "codetoooftenmsg"="客户端请求发送短信验证过于频繁";
 
-"verifycode"="验证码";
+"verifycode"="请输入验证码";
 "verifylabel"="我们已发送验证码到这个号码";
 "timelabel"="接受短信大约需要60秒";
-"repeatsms"="收不到验证码？";
+"repeatsms"="收不到短信验证码？";
 "submit"="提交";
 "sendingin"="正在发送中...";
-"timelablemsg"="接受短信大约需要";
+"timelablemsg"="接收验证码中...";
 "second"="秒";
 
 "verifycoderightmsg"="验证码正确";
@@ -52,8 +55,6 @@
 "wait"="等待";
 
 "verifycodeformaterror"="验证码格式错误,请重新填写";
-
-
 "doesnotsupportarea"="暂时不支持该地区";
 
 "addfriends"="添加";
@@ -73,6 +74,11 @@
 "phonecode"="手机号";
 "smsmessage"="快加入SMS_SDK吧,网址为http://mob.com";
 "choosephonenumber"="选择要发送邀请的号码";
+
+"voiceCallMsgLabel" = "您也可以选择电话收听语音验证码：";
+"try voice call" = "收听语音验证码";
+
+"verificationByVoiceCallConfirm" = "确定后将致电您的手机号，语音播报验证码。如不希望被来电打扰请使用短信验证码。";
 
 
 

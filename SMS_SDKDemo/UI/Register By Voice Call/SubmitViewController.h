@@ -1,16 +1,16 @@
 //
-//  VerifyViewController.h
+//  SubmitViewController.h
 //  SMS_SDKDemo
 //
-//  Created by admin on 14-6-4.
-//  Copyright (c) 2014年 admin. All rights reserved.
+//  Created by ljh on 2/4/15.
+//  Copyright (c) 2015 严军. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 #import <SMS_SDK/SMS_UserInfo.h>
 
-@interface VerifyViewController : UIViewController <UIAlertViewDelegate>
+@interface SubmitViewController : UIViewController<UIAlertViewDelegate>
 
 @property(nonatomic,strong)  UILabel* telLabel;
 @property(nonatomic,strong)  UITextField* verifyCodeField;
@@ -18,9 +18,6 @@
 @property(nonatomic,strong)  UIButton* repeatSMSBtn;
 @property(nonatomic,strong)  UIButton* submitBtn;
 @property(nonatomic,assign) NSString* isVerify;
-
-@property (nonatomic, strong) UILabel *voiceCallMsgLabel;
-@property (nonatomic, strong) UIButton *voiceCallButton;
 
 -(void)setPhone:(NSString*)phone AndAreaCode:(NSString*)areaCode;
 -(void)submit;
