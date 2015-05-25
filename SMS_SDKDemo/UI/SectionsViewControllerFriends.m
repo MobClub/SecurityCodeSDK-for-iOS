@@ -42,6 +42,7 @@
                                    sortedArrayUsingSelector:@selector(compare:)]];
     self.keys = keyArray;
 }
+
 - (void)handleSearchForTerm:(NSString *)searchTerm
 {
     NSMutableArray *sectionsToRemove = [[NSMutableArray alloc] init];
@@ -103,6 +104,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.view.backgroundColor=[UIColor whiteColor];
     
     CGFloat statusBarHeight=0;
@@ -111,7 +114,7 @@
         statusBarHeight=20;
     }
     //创建一个导航栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, self.view.frame.size.width, 44)];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
                                                                        style:UIBarButtonItemStyleBordered
@@ -124,11 +127,11 @@
     
     //添加搜索框
     search=[[UISearchBar alloc] init];
-    search.frame=CGRectMake(0, 44+statusBarHeight, 320, 44);
+    search.frame=CGRectMake(0, 44+statusBarHeight, self.view.frame.size.width, 44);
     [self.view addSubview:search];
     
     //添加table
-    table=[[UITableView alloc] initWithFrame:CGRectMake(0, 88+statusBarHeight, 320, self.view.bounds.size.height-(88+statusBarHeight)) style:UITableViewStylePlain];
+    table=[[UITableView alloc] initWithFrame:CGRectMake(0, 88+statusBarHeight, self.view.frame.size.width, self.view.bounds.size.height-(88+statusBarHeight)) style:UITableViewStylePlain];
     table.dataSource=self;
     table.delegate=self;
     [self.view addSubview:table];
@@ -205,6 +208,7 @@
     return [keys count];
     
 }
+
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section
 {
@@ -328,6 +332,7 @@ titleForHeaderInSection:(NSInteger)section
     [tableView reloadData];
     return indexPath;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView 
 sectionForSectionIndexTitle:(NSString *)title 
                atIndex:(NSInteger)index
@@ -363,11 +368,13 @@ sectionForSectionIndexTitle:(NSString *)title
     NSString *searchTerm = [searchBar text];
     [self handleSearchForTerm:searchTerm];
 }
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     isSearching = YES;
     [table reloadData];
 }
+
 - (void)searchBar:(UISearchBar *)searchBar 
     textDidChange:(NSString *)searchTerm
 {
@@ -392,4 +399,5 @@ sectionForSectionIndexTitle:(NSString *)title
     
     [searchBar resignFirstResponder];
 }
+
 @end

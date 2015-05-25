@@ -79,7 +79,7 @@ static UIAlertView* _alert1 = nil;
     [self.view addSubview:infoBtn];
     
     //创建导航栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, self.view.frame.size.width, 44)];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
     [navigationItem setTitle:@"SMSSDK"];
     [navigationBar pushNavigationItem:navigationItem animated:NO];
@@ -105,7 +105,8 @@ static UIAlertView* _alert1 = nil;
 - (void)submitUserInfo:(id)sender
 {
     [SMS_SDK submitUserInfo:nil
-                     result:^(enum SMS_ResponseState state) {
+                     result:^(enum SMS_ResponseState state)
+    {
                          if (state == SMS_ResponseStateSuccess)
                          {
                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交成功"
@@ -178,7 +179,7 @@ static UIAlertView* _alert1 = nil;
                                                      delegate:self
                                             cancelButtonTitle:NSLocalizedString(@"sure", nil)
                                             otherButtonTitles:nil, nil];
-        _alert1=alert;
+        _alert1 = alert;
         [alert show];
     }
 }

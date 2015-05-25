@@ -6,7 +6,10 @@
 #import <SMS_SDK/SMS_SDKResultHanderDef.h>
 
 @interface SectionsViewControllerFriends : UIViewController
-<UITableViewDataSource, UITableViewDelegate,CustomCellDelegate,UISearchBarDelegate>
+<UITableViewDataSource,
+UITableViewDelegate,
+CustomCellDelegate,
+UISearchBarDelegate>
 {
     UITableView *table;
     UISearchBar *search;
@@ -16,6 +19,7 @@
     
     BOOL    isSearching;
 }
+
 @property (nonatomic, strong)  UITableView *table;
 @property (nonatomic, strong)  UISearchBar *search;
 @property (nonatomic, strong) NSDictionary *allNames;

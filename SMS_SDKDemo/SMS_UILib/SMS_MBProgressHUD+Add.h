@@ -9,7 +9,8 @@
 #import "SMS_MBProgressHUD.h"
 
 @interface SMS_MBProgressHUD (Add)
-+ (void)showError:(NSString *)error toView:(UIView *)view;
 
++ (void)showError:(NSString *)error toView:(UIView *)view;
 + (SMS_MBProgressHUD *)showMessag:(NSString *)message toView:(UIView *)view;
+
 @end

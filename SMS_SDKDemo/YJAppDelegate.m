@@ -11,8 +11,8 @@
 
 #import <SMS_SDK/SMS_SDK.h>
 
-#define appKey @"25a64c839b5f"
-#define appSecret @"9a639150fcb464d9a1c1ab926648ca3f"
+#define appKey @"4d90f19ede24"
+#define appSecret @"a239033c4182defcd93eaabd054c25d6"
 
 @implementation YJAppDelegate
 

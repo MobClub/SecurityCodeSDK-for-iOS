@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 
 /**
- * @brief SMS_AddressBook类 为用户信息
+ * @brief SMS_UserInfo 用户信息
  */
-
 @interface SMS_UserInfo : NSObject
 
 /**

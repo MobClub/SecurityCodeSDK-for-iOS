@@ -13,16 +13,15 @@
 #import <MessageUI/MessageUI.h>
 
 /**
- * @brief 核心类（Core class）v1.0.7
+ * @brief 核心类（Core class）v1.0.8
  */
 @interface SMS_SDK : NSObject <MFMessageComposeViewControllerDelegate>
 
 /**
- * @brief 注册应用，此方法在应用启动时在主线程中调用。(This method is called in the main thread in application:didFinishLaunchingWithOptions: method)
+ *  初始化应用，此方法在应用启动时在主线程中调用。(This method is called in the main thread in application:didFinishLaunchingWithOptions: method)
  *
- * @param appKey 在Mob官网(http://mob.com/ )中注册的应用Key。(The appKey of mob Application. Log in to http://mob.com/ to register to be a Mob developer and create a application if you don't have one)
- *
- * @param appSecret 在Mob官网(http://mob.com/ )中注册的应用秘钥。(The appSecret of mob Application. Log in to http://mob.com/ to register to be a Mob developer and create a application if you don't have one)
+ *  @param appKey    在Mob官网(http://mob.com/ )中注册的应用Key。(The appKey of mob Application. Log in to http://mob.com/ to register to be a Mob developer and create a application if you don't have one)
+ *  @param appSecret 在Mob官网(http://mob.com/ )中注册的应用秘钥。(The appSecret of mob Application. Log in to http://mob.com/ to register to be a Mob developer and create a application if you don't have one)
  */
 +(void)registerApp:(NSString*)appKey withSecret:(NSString*)appSecret;
 
@@ -55,7 +54,7 @@
  *
  *  @from  v1.0.7
  *  @param phoneNumber 电话号码(The phone number)
- *  @param zone        区号(Area code)
+ *  @param zone        区域号，不要加"+"号(Area code)
  *  @param result      请求结果回调(Results of the request)
  */
 + (void)getVerificationCodeBySMSWithPhone:(NSString *)phoneNumber
@@ -66,7 +65,7 @@
  *  @brief 通过语音电话获取语音验证码（Get verification code via voice call）
  *
  *  @param phone  电话号码(The phone number)
- *  @param zone   区号(Area code)
+ *  @param zone   区域号，不要加"+"号(Area code)
  *  @param result 请求结果回调(Results of the request)
  */
 + (void)getVerificationCodeByVoiceCallWithPhone:(NSString *)phoneNumber
@@ -129,15 +128,14 @@
 /**
  * @brief 获取验证码(Get verification code by SMS)
  * @deprecated 可以使用 +(void)getVerificationCodeBySMSWithPhone:zone:result:替代
- （Use the +(void)getVerificationCodeBySMSWithPhone:zone:result: function instead）
+   (Deprecated in SMS_SDK v1.0.7  Use +(void)getVerificationCodeBySMSWithPhone:zone:result: instead.)
  *
  * @param 电话号码(The phone number)
- * @param 区号(Area code)
+ * @param 区域号，不要加"+"号(Area code)
  * @param 请求结果回调(Results of the request)
  */
 +(void)getVerifyCodeByPhoneNumber:(NSString*) phone
                           AndZone:(NSString*) zone
-                           result:(GetVerifyCodeBlock)result;
-
+                           result:(GetVerifyCodeBlock)result __deprecated;
 
 @end

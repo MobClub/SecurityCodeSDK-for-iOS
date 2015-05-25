@@ -74,7 +74,8 @@
     {
         NSDictionary* dict1=[_areaArray objectAtIndex:i];
         NSString* code1=[dict1 valueForKey:@"zone"];
-        if ([code1 isEqualToString:[_areaCodeField.text stringByReplacingOccurrencesOfString:@"+" withString:@""]]) {
+        if ([code1 isEqualToString:[_areaCodeField.text stringByReplacingOccurrencesOfString:@"+" withString:@""]])
+        {
             compareResult=1;
             NSString* rule1=[dict1 valueForKey:@"rule"];
             NSPredicate* pred=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",rule1];
@@ -147,9 +148,7 @@
             }
             
         }];
-        
     }
-    if (0==buttonIndex){}
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -169,7 +168,7 @@
     }
     
     //创建一个导航栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, self.view.frame.size.width, 44)];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
                                                                    style:UIBarButtonItemStyleBordered
@@ -182,7 +181,7 @@
     
     //
     UILabel* label=[[UILabel alloc] init];
-    label.frame=CGRectMake(30, 56+statusBarHeight, 258, 50);
+    label.frame=CGRectMake(15, 56+statusBarHeight, self.view.frame.size.width - 30, 50);
     label.text=[NSString stringWithFormat:NSLocalizedString(@"labelnotice", nil)];
     label.numberOfLines = 0;
     label.textAlignment = UITextAlignmentCenter;
@@ -190,12 +189,12 @@
     label.textColor=[UIColor darkGrayColor];
     [self.view addSubview:label];
     
-    UITableView* tableView=[[UITableView alloc] initWithFrame:CGRectMake(7, 106+statusBarHeight, 305, 45) style:UITableViewStylePlain];
+    UITableView* tableView=[[UITableView alloc] initWithFrame:CGRectMake(10, 106+statusBarHeight, self.view.frame.size.width - 20, 45) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     
     //区域码
     UITextField* areaCodeField=[[UITextField alloc] init];
-    areaCodeField.frame=CGRectMake(7, 155+statusBarHeight, 59, 35+statusBarHeight/4);
+    areaCodeField.frame=CGRectMake(10, 155+statusBarHeight, (self.view.frame.size.width - 30)/4, 40+statusBarHeight/4);
     areaCodeField.borderStyle=UITextBorderStyleBezel;
     areaCodeField.text=[NSString stringWithFormat:@"+86"];
     areaCodeField.textAlignment=UITextAlignmentCenter;
@@ -205,7 +204,7 @@
     
     //
     UITextField* telField=[[UITextField alloc] init];
-    telField.frame=CGRectMake(74, 155+statusBarHeight, 238, 35+statusBarHeight/4);
+    telField.frame=CGRectMake(20+(self.view.frame.size.width - 30)/4, 155+statusBarHeight,(self.view.frame.size.width - 30)*3/4 , 40+statusBarHeight/4);
     telField.borderStyle=UITextBorderStyleBezel;
     telField.placeholder=NSLocalizedString(@"telfield", nil);
     telField.keyboardType=UIKeyboardTypePhonePad;
@@ -217,7 +216,7 @@
     [nextBtn setTitle:NSLocalizedString(@"nextbtn", nil) forState:UIControlStateNormal];
     NSString *icon = [NSString stringWithFormat:@"smssdk.bundle/button4.png"];
     [nextBtn setBackgroundImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
-    nextBtn.frame=CGRectMake(7, 220+statusBarHeight, 305, 42);
+    nextBtn.frame=CGRectMake(10, 220+statusBarHeight, self.view.frame.size.width - 20, 42);
     [nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [nextBtn addTarget:self action:@selector(nextStep) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:nextBtn];
@@ -235,16 +234,17 @@
     
     //设置本地区号
     [self setTheLocalAreaCode];
+    
     //获取支持的地区列表
     [SMS_SDK getZone:^(enum SMS_ResponseState state, NSArray *array)
     {
-        if (1==state)
+        if (1 == state)
         {
-            NSLog(@"sucessfully get the area code");
+            NSLog(@"get the area code sucessfully");
             //区号数据
             _areaArray=[NSMutableArray arrayWithArray:array];
         }
-        else if (0==state)
+        else if (0 == state)
         {
             NSLog(@"failed to get the area code");
         }

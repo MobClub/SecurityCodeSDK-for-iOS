@@ -4,7 +4,7 @@
 //  SMS_SDKDemo
 //
 //  Created by ljh on 2/4/15.
-//  Copyright (c) 2015 严军. All rights reserved.
+//  Copyright (c) 2015 掌淘科技. All rights reserved.
 //
 
 #import "SubmitViewController.h"
@@ -213,7 +213,7 @@ static NSMutableArray* _userData2;
         statusBarHeight=20;
     }
     //创建一个导航栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, self.view.frame.size.width, 44)];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
                                                                    style:UIBarButtonItemStyleBordered
@@ -226,21 +226,21 @@ static NSMutableArray* _userData2;
     [self.view addSubview:navigationBar];
     
     UILabel* label=[[UILabel alloc] init];
-    label.frame=CGRectMake(20, 53+statusBarHeight, 280, 21);
+    label.frame=CGRectMake(15, 53+statusBarHeight, self.view.frame.size.width - 30, 21);
     label.text=[NSString stringWithFormat:NSLocalizedString(@"verifylabel", nil)];
     label.textAlignment = UITextAlignmentCenter;
     label.font = [UIFont fontWithName:@"Helvetica" size:17];
     [self.view addSubview:label];
     
     _telLabel=[[UILabel alloc] init];
-    _telLabel.frame=CGRectMake(85, 82+statusBarHeight, 158, 21);
+    _telLabel.frame=CGRectMake(15, 82+statusBarHeight, self.view.frame.size.width - 30, 21);
     _telLabel.textAlignment = UITextAlignmentCenter;
     _telLabel.font = [UIFont fontWithName:@"Helvetica" size:17];
     [self.view addSubview:_telLabel];
     self.telLabel.text= [NSString stringWithFormat:@"+%@ %@",_areaCode,_phone];
     
     _verifyCodeField=[[UITextField alloc] init];
-    _verifyCodeField.frame=CGRectMake(85, 111+statusBarHeight, 158, 46);
+    _verifyCodeField.frame=CGRectMake(15, 111+statusBarHeight, self.view.frame.size.width - 30, 46);
     _verifyCodeField.borderStyle=UITextBorderStyleBezel;
     _verifyCodeField.textAlignment=UITextAlignmentCenter;
     _verifyCodeField.placeholder=NSLocalizedString(@"verifycode", nil);
@@ -250,7 +250,7 @@ static NSMutableArray* _userData2;
     [self.view addSubview:_verifyCodeField];
     
     _timeLabel=[[UILabel alloc] init];
-    _timeLabel.frame=CGRectMake(64, 169+statusBarHeight, 200, 40);
+    _timeLabel.frame=CGRectMake(15, 169+statusBarHeight, self.view.frame.size.width - 30, 40);
     _timeLabel.numberOfLines = 0;
     _timeLabel.textAlignment = UITextAlignmentCenter;
     _timeLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
@@ -258,7 +258,7 @@ static NSMutableArray* _userData2;
     [self.view addSubview:_timeLabel];
     
     _repeatSMSBtn=[UIButton buttonWithType:UIButtonTypeSystem];
-    _repeatSMSBtn.frame=CGRectMake(96, 169+statusBarHeight, 137, 30);
+    _repeatSMSBtn.frame=CGRectMake(15, 169+statusBarHeight, self.view.frame.size.width - 30, 30);
     [_repeatSMSBtn setTitle:NSLocalizedString(@"repeatsms", nil) forState:UIControlStateNormal];
     [_repeatSMSBtn addTarget:self action:@selector(CannotGetSMS) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_repeatSMSBtn];
@@ -267,7 +267,7 @@ static NSMutableArray* _userData2;
     [_submitBtn setTitle:NSLocalizedString(@"submit", nil) forState:UIControlStateNormal];
     NSString *icon = [NSString stringWithFormat:@"smssdk.bundle/button4.png"];
     [_submitBtn setBackgroundImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
-    _submitBtn.frame=CGRectMake(9, 220+statusBarHeight, 303, 42);
+    _submitBtn.frame=CGRectMake(15, 220+statusBarHeight, self.view.frame.size.width - 30, 42);
     [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_submitBtn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_submitBtn];

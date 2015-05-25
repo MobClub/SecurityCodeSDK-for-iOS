@@ -40,7 +40,6 @@
 
 @end
 
-
 @implementation SMS_MBProgressHUD
 
 #pragma mark -
@@ -75,7 +74,7 @@
 
 @synthesize showStarted;
 
-- (void)setMode:(MBProgressHUDMode)newMode {
+- (void)setMode:(SMS_MBProgressHUDMode)newMode {
     // Dont change mode if it wasn't actually changed to prevent flickering
     if (mode && (mode == newMode)) {
         return;
@@ -94,7 +93,7 @@
 	}
 }
 
-- (MBProgressHUDMode)mode {
+- (SMS_MBProgressHUDMode)mode {
 	return mode;
 }
 
@@ -134,7 +133,7 @@
     progress = newProgress;
 	
     // Update display ony if showing the determinate progress view
-    if (mode == MBProgressHUDModeDeterminate) {
+    if (mode == SMS_MBProgressHUDModeDeterminate) {
 		if ([NSThread isMainThread]) {
 			[self updateProgress];
 			[self setNeedsDisplay];
@@ -171,7 +170,7 @@
 }
 
 - (void)updateProgress {
-    [(MBRoundProgressView *)indicator setProgress:progress];
+    [(SMS_MBRoundProgressView *)indicator setProgress:progress];
 }
 
 - (void)updateIndicators {
@@ -179,14 +178,14 @@
         [indicator removeFromSuperview];
     }
 	
-    if (mode == MBProgressHUDModeDeterminate) {
+    if (mode == SMS_MBProgressHUDModeDeterminate) {
 #if __has_feature(objc_arc)
-        self.indicator = [[MBRoundProgressView alloc] init];
+        self.indicator = [[SMS_MBRoundProgressView alloc] init];
 #else
-        self.indicator = [[[MBRoundProgressView alloc] init] autorelease];
+        self.indicator = [[[SMS_MBRoundProgressView alloc] init] autorelease];
 #endif
 }
-    else if (mode == MBProgressHUDModeCustomView && self.customView != nil){
+    else if (mode == SMS_MBProgressHUDModeCustomView && self.customView != nil){
         self.indicator = self.customView;
     } else {
 #if __has_feature(objc_arc)
@@ -206,10 +205,10 @@
 #pragma mark -
 #pragma mark Constants
 
-#define PADDING 4.0f
+#define SMS_PADDING 4.0f
 
-#define LABELFONTSIZE 16.0f
-#define LABELDETAILSFONTSIZE 12.0f
+#define SMS_LABELFONTSIZE 16.0f
+#define SMS_LABELDETAILSFONTSIZE 12.0f
 
 #pragma mark -
 #pragma mark Class methods
@@ -251,7 +250,6 @@
 }
 
 - (id)initWithView:(UIView *)view {
-	// Let's check if the view is nil (this is a common error when using the windw initializer above)
 	if (!view) {
 		[NSException raise:@"MBProgressHUDViewIsNillException" 
 					format:@"The view used in the MBProgressHUD initializer is nil."];
@@ -280,13 +278,13 @@
     self = [super initWithFrame:frame];
 	if (self) {
         // Set default values for properties
-        self.animationType = MBProgressHUDAnimationFade;
-        self.mode = MBProgressHUDModeIndeterminate;
+        self.animationType = SMS_MBProgressHUDAnimationFade;
+        self.mode = SMS_MBProgressHUDModeIndeterminate;
         self.labelText = nil;
         self.detailsLabelText = nil;
         self.opacity = 0.8f;
-        self.labelFont = [UIFont boldSystemFontOfSize:LABELFONTSIZE];
-        self.detailsLabelFont = [UIFont boldSystemFontOfSize:LABELDETAILSFONTSIZE];
+        self.labelFont = [UIFont boldSystemFontOfSize:SMS_LABELFONTSIZE];
+        self.detailsLabelFont = [UIFont boldSystemFontOfSize:SMS_LABELDETAILSFONTSIZE];
         self.xOffset = 0.0f;
         self.yOffset = 0.0f;
 		self.dimBackground = NO;
@@ -377,15 +375,15 @@
         if (self.width < (lWidth + 2 * margin)) {
             self.width = lWidth + 2 * margin;
         }
-        self.height = self.height + lHeight + PADDING;
+        self.height = self.height + lHeight + SMS_PADDING;
 		
         // Move indicator to make room for the label
-        indFrame.origin.y -= (floorf(lHeight / 2 + PADDING / 2));
+        indFrame.origin.y -= (floorf(lHeight / 2 + SMS_PADDING / 2));
         indicator.frame = indFrame;
 		
         // Set the label position and dimensions
         CGRect lFrame = CGRectMake(floorf((frame.size.width - lWidth) / 2) + xOffset,
-                                   floorf(indFrame.origin.y + indFrame.size.height + PADDING),
+                                   floorf(indFrame.origin.y + indFrame.size.height + SMS_PADDING),
                                    lWidth, lHeight);
         label.frame = lFrame;
 		
@@ -413,19 +411,19 @@
             if (self.width < lWidth) {
                 self.width = lWidth + 2 * margin;
             }
-            self.height = self.height + lHeight + PADDING;
+            self.height = self.height + lHeight + SMS_PADDING;
 			
             // Move indicator to make room for the new label
-            indFrame.origin.y -= (floorf(lHeight / 2 + PADDING / 2));
+            indFrame.origin.y -= (floorf(lHeight / 2 + SMS_PADDING / 2));
             indicator.frame = indFrame;
 			
             // Move first label to make room for the new label
-            lFrame.origin.y -= (floorf(lHeight / 2 + PADDING / 2));
+            lFrame.origin.y -= (floorf(lHeight / 2 + SMS_PADDING / 2));
             label.frame = lFrame;
 			
             // Set label position and dimensions
             CGRect lFrameD = CGRectMake(floorf((frame.size.width - lWidth) / 2) + xOffset,
-                                        lFrame.origin.y + lFrame.size.height + PADDING, lWidth, lHeight);
+                                        lFrame.origin.y + lFrame.size.height + SMS_PADDING, lWidth, lHeight);
             detailsLabel.frame = lFrameD;
 			
             [self addSubview:detailsLabel];
@@ -492,7 +490,8 @@
     [self hideUsingAnimation:useAnimation];
 }
 
-- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay {
+- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay
+{
 	[self performSelector:@selector(hideDelayed:) withObject:[NSNumber numberWithBool:animated] afterDelay:delay];
 }
 
@@ -590,7 +589,7 @@
 
 - (void)showUsingAnimation:(BOOL)animated {
     self.alpha = 0.0f;
-    if (animated && animationType == MBProgressHUDAnimationZoom) {
+    if (animated && animationType == SMS_MBProgressHUDAnimationFade) {
         self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(1.5f, 1.5f));
     }
     
@@ -600,7 +599,7 @@
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.30];
         self.alpha = 1.0f;
-        if (animationType == MBProgressHUDAnimationZoom) {
+        if (animationType == SMS_MBProgressHUDAnimationZoom) {
             self.transform = rotationTransform;
         }
         [UIView commitAnimations];
@@ -619,7 +618,7 @@
         [UIView setAnimationDidStopSelector:@selector(animationFinished: finished: context:)];
         // 0.02 prevents the hud from passing through touches during the animation the hud will get completely hidden
         // in the done method
-        if (animationType == MBProgressHUDAnimationZoom) {
+        if (animationType == SMS_MBProgressHUDAnimationZoom) {
             self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(0.5f, 0.5f));
         }
         self.alpha = 0.02f;
@@ -679,7 +678,7 @@
 #pragma mark -
 #pragma mark Manual oritentation change
 
-#define RADIANS(degrees) ((degrees * (float)M_PI) / 180.0f)
+#define SMS_RADIANS(degrees) ((degrees * (float)M_PI) / 180.0f)
 
 - (void)deviceOrientationDidChange:(NSNotification *)notification { 
 	if (!self.superview) {
@@ -714,7 +713,7 @@
 		else { degrees = 0; }
 	}
 	
-	rotationTransform = CGAffineTransformMakeRotation(RADIANS(degrees));
+	rotationTransform = CGAffineTransformMakeRotation(SMS_RADIANS(degrees));
 
 	if (animated) {
 		[UIView beginAnimations:nil context:nil];
@@ -729,7 +728,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation MBRoundProgressView
+@implementation SMS_MBRoundProgressView
 
 #pragma mark -
 #pragma mark Accessors

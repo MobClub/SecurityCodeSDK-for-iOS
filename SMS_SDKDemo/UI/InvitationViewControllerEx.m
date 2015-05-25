@@ -33,7 +33,6 @@
     _name=name;
 }
 
-
 -(void)setPhone:(NSString *)phone AndPhone2:(NSString*)phone2
 {
     _phone=phone;
@@ -112,7 +111,7 @@
         statusBarHeight=20;
     }
     //创建一个导航栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, 320, 44)];
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0+statusBarHeight, self.view.frame.size.width, 44)];
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:nil];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
                                                                    style:UIBarButtonItemStyleBordered
@@ -123,7 +122,7 @@
     [navigationItem setLeftBarButtonItem:leftButton];
     [self.view addSubview:navigationBar];
     
-    UITableView* tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 44+statusBarHeight, 320, 80) style:UITableViewStylePlain];
+    UITableView* tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 44+statusBarHeight, self.view.frame.size.width, 80) style:UITableViewStylePlain];
     tableView.dataSource=self;
     tableView.delegate=self;
     [self.view addSubview:tableView];
@@ -132,13 +131,13 @@
     [btn setTitle:NSLocalizedString(@"sendinvite", nil) forState:UIControlStateNormal];
     NSString *icon = [NSString stringWithFormat:@"smssdk.bundle/button4.png"];
     [btn setBackgroundImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
-    btn.frame=CGRectMake(11, 198+statusBarHeight, 299, 42);
+    btn.frame=CGRectMake(15, 198+statusBarHeight, self.view.frame.size.width-30, 42);
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(sendInvite) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
     UILabel* label=[[UILabel alloc] init];
-    label.frame=CGRectMake(0, 146+statusBarHeight, 320, 27);
+    label.frame=CGRectMake(0, 146+statusBarHeight, self.view.frame.size.width, 27);
     label.text=[NSString stringWithFormat:@"%@%@",_name,NSLocalizedString(@"notjoined", nil)];
     label.textAlignment = UITextAlignmentCenter;
     label.font = [UIFont fontWithName:@"Helvetica" size:13];

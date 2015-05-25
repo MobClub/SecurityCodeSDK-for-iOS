@@ -17,7 +17,7 @@
     // 设置图片
     hud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"alert_failed_icon.png"]] autorelease];
     // 再设置模式
-    hud.mode = MBProgressHUDModeCustomView;
+    hud.mode = SMS_MBProgressHUDModeCustomView;
     
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;

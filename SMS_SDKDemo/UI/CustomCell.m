@@ -44,7 +44,6 @@
         [self.contentView addSubview:_nameDescLabel];
         
         _btn=[UIButton buttonWithType:UIButtonTypeSystem];
-        _btn.frame=CGRectMake(254, 15, 46, 30);
         [_btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
         [_btn setTitle:@"邀请" forState:UIControlStateNormal];
         NSString *icon = [NSString stringWithFormat:@"smssdk.bundle/button2.png"];
@@ -53,6 +52,13 @@
         [self.contentView addSubview:_btn];
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    _btn.frame=CGRectMake(self.frame.size.width -80, 15, 65, 30);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

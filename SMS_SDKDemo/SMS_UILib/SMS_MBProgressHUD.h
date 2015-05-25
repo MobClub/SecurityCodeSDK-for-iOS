@@ -28,50 +28,31 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MBProgressHUDDelegate;
+@protocol SMS_MBProgressHUDDelegate;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-typedef enum {
+typedef enum
+{
     /** Progress is shown using an UIActivityIndicatorView. This is the default. */
-    MBProgressHUDModeIndeterminate,
+    SMS_MBProgressHUDModeIndeterminate,
     /** Progress is shown using a MBRoundProgressView. */
-	MBProgressHUDModeDeterminate,
+	SMS_MBProgressHUDModeDeterminate,
 	/** Shows a custom view */
-	MBProgressHUDModeCustomView
-} MBProgressHUDMode;
+	SMS_MBProgressHUDModeCustomView
+} SMS_MBProgressHUDMode;
 
 typedef enum {
     /** Opacity animation */
-    MBProgressHUDAnimationFade,
+    SMS_MBProgressHUDAnimationFade,
     /** Opacity + scale animation */
-    MBProgressHUDAnimationZoom
-} MBProgressHUDAnimation;
+    SMS_MBProgressHUDAnimationZoom
+} SMS_MBProgressHUDAnimation;
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-/** 
- * Displays a simple HUD window containing a progress indicator and two optional labels for short messages.
- *
- * This is a simple drop-in class for displaying a progress HUD view similar to Apples private UIProgressHUD class.
- * The MBProgressHUD window spans over the entire space given to it by the initWithFrame constructor and catches all
- * user input on this region, thereby preventing the user operations on components below the view. The HUD itself is
- * drawn centered as a rounded semi-transparent view witch resizes depending on the user specified content.
- *
- * This view supports three modes of operation:
- * - MBProgressHUDModeIndeterminate - shows a UIActivityIndicatorView
- * - MBProgressHUDModeDeterminate - shows a custom round progress indicator (MBRoundProgressView)
- * - MBProgressHUDModeCustomView - shows an arbitrary, user specified view (@see customView)
- *
- * All three modes can have optional labels assigned:
- * - If the labelText property is set and non-empty then a label containing the provided content is placed below the
- *   indicator view.
- * - If also the detailsLabelText property is set then another label is placed below the first label.
- */
 @interface SMS_MBProgressHUD : UIView {
 	
-	MBProgressHUDMode mode;
-    MBProgressHUDAnimation animationType;
+	SMS_MBProgressHUDMode mode;
+    SMS_MBProgressHUDAnimation animationType;
 	
 	SEL methodForExecution;
 	id targetForExecution;
@@ -105,11 +86,11 @@ typedef enum {
 	float progress;
 	
 #if __has_feature(objc_arc_weak)
-	id<MBProgressHUDDelegate> __weak delegate;
+	id<SMS_MBProgressHUDDelegate> __weak delegate;
 #elif __has_feature(objc_arc)
-	id<MBProgressHUDDelegate> __unsafe_unretained delegate;
+	id<SMS_MBProgressHUDDelegate> __unsafe_unretained delegate;
 #else
-	id<MBProgressHUDDelegate> delegate;
+	id<SMS_MBProgressHUDDelegate> delegate;
 #endif
     NSString *labelText;
 	NSString *detailsLabelText;
@@ -183,14 +164,14 @@ typedef enum {
  *
  * @see MBProgressHUDMode
  */
-@property (assign) MBProgressHUDMode mode;
+@property (assign) SMS_MBProgressHUDMode mode;
 
 /**
  * The animation type that should be used when the HUD is shown and hidden. 
  *
  * @see MBProgressHUDAnimation
  */
-@property (assign) MBProgressHUDAnimation animationType;
+@property (assign) SMS_MBProgressHUDAnimation animationType;
 
 /** 
  * The HUD delegate object. If set the delegate will receive hudWasHidden callbacks when the HUD was hidden. The
@@ -198,11 +179,11 @@ typedef enum {
  * object will not be retained.
  */
 #if __has_feature(objc_arc_weak)
-@property (weak) id<MBProgressHUDDelegate> delegate;
+@property (weak) id<SMS_MBProgressHUDDelegate> delegate;
 #elif __has_feature(objc_arc)
-@property (unsafe_unretained) id<MBProgressHUDDelegate> delegate;
+@property (unsafe_unretained) id<SMS_MBProgressHUDDelegate> delegate;
 #else
-@property (assign) id<MBProgressHUDDelegate> delegate;
+@property (assign) id<SMS_MBProgressHUDDelegate> delegate;
 #endif
 
 /** 
@@ -365,7 +346,7 @@ typedef enum {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-@protocol MBProgressHUDDelegate <NSObject>
+@protocol SMS_MBProgressHUDDelegate <NSObject>
 
 @optional
 
@@ -387,7 +368,7 @@ typedef enum {
 /**
  * A progress view for showing definite progress by filling up a circle (pie chart).
  */
-@interface MBRoundProgressView : UIView {
+@interface SMS_MBRoundProgressView : UIView {
 @private
     float _progress;
 }

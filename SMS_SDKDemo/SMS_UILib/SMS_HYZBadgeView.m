@@ -131,35 +131,12 @@
 	}
 	
 	CGContextTranslateCTM( curContext, ctm.x, ctm.y);
-/*    
-	if (self.shadow)
-	{
-		CGContextSaveGState( curContext );
-        
-		CGSize blurSize;
-		blurSize.width = 0;
-		blurSize.height = -3;
-		UIColor* blurColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-		
-		CGContextSetShadowWithColor( curContext, blurSize, 4, blurColor.CGColor );
-		
-		CGContextBeginPath( curContext );
-		CGContextAddPath( curContext, badgePath );
-		CGContextClosePath( curContext );
-		
-		CGContextDrawPath( curContext, kCGPathFillStroke );
-		CGContextRestoreGState(curContext); 
-	}
-*/	
+
 	CGContextBeginPath( curContext );
 	CGContextAddPath( curContext, badgePath );
 	CGContextClosePath( curContext );
 	CGContextDrawPath( curContext, kCGPathFillStroke );
     
-	//
-	// add shine to badge
-	//
-	
 	if (self.shine)
 	{
 		CGContextBeginPath( curContext );
@@ -237,7 +214,6 @@
 - (void)setNumber:(NSUInteger)inValue
 {
     if( inValue == 0 ) {
-        //_value = [[NSString alloc]initWithFormat:@"%d",inValue];
         self.frame = CGRectZero;
         [self setNeedsLayout];
         return;
@@ -285,7 +261,6 @@
     id exist = [self viewWithTag:HYZ_BADGE_TAG];
     if(exist) {
         if(![exist isKindOfClass:[SMS_HYZBadgeView class]]) {
-            //NSLog(@"Unexpected view of class %@ found with badge tag.",existingView);
             return nil;
         } else {
             return (SMS_HYZBadgeView *)exist;
